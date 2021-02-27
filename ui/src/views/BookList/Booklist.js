@@ -1,39 +1,28 @@
 import React from "react";
 import "./Booklist.css";
 import BookItem from "./BookItem";
+import { useQuery } from "@apollo/client";
+import { QUERIES } from "./../../queries/queries";
 
-const samplebooks = [
-  {
-    name: "Wings of fire",
-    genre: "inspiration",
-    author: { name: "Dr. APJ Abdul Kalam", age: 65 },
-  },
-  {
-    name: "Yayati",
-    genre: "novel",
-    author: { name: "V.S Khandekar", age: 95 },
-  },
-  {
-    name: "Mrutyunjay",
-    genre: "history",
-    author: { name: "Shivaji Sawant", age: 52 },
-  },
-  {
-    name: "Vision 2020",
-    genre: "general",
-    author: { name: "Chetan Bhagat", age: 37 },
-  },
-];
+const { getBooksQuery } = QUERIES;
 
-function Booklist({ sendBook, booklist = samplebooks }) {
+function Booklist({ sendBook }) {
   const onBookClick = (book) => {
     sendBook(book);
   };
+
+  const { loading, error, data } = useQuery(getBooksQuery);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  const booklist = data.books;
   return (
     <div className="booklist">
       {booklist.map((book) => {
         return (
           <BookItem
+            key={book.id}
             name={book.name}
             genre={book.genre}
             onClick={() => onBookClick(book)}

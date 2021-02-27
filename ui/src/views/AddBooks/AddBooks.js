@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "./AddBooks.css";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERIES } from "./../../queries/queries";
+
+const { getAuthorsQuery, addBookQuery } = QUERIES;
 
 function AddBooks() {
   const [formData, setFormData] = useState({
@@ -7,9 +11,18 @@ function AddBooks() {
     genre: "",
     authorId: "",
   });
+  const [addBookHandler] = useMutation(addBookQuery);
 
-  const onSubmit = () => {
+  const { loading, data, error } = useQuery(getAuthorsQuery);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  const onSubmit = (e) => {
+    e.preventDefault();
     if (Object.values(formData).every(Boolean)) {
+      const { name, genre, authorId } = formData;
+      addBookHandler({ variables: { name, genre, authorId } });
       console.log(formData);
       setFormData({
         name: "",
@@ -55,9 +68,13 @@ function AddBooks() {
             required
           >
             <option>Select author</option>
-            <option value={1}>Option 1</option>
-            <option value={2}>Option 2</option>
-            <option value={3}>Option 3</option>
+            {(data.authors || []).map((i) => {
+              return (
+                <option value={i.id} key={i.id}>
+                  {i.name}
+                </option>
+              );
+            })}
           </select>
         </div>
         <button className="btn-primary" type="submit" onClick={onSubmit}>
