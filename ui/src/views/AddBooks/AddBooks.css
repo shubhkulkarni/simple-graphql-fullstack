@@ -1,0 +1,45 @@
+.addbooks {
+  height: 35%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.text__input {
+  width: 35%;
+  min-width: 25rem;
+  padding: 1rem 2rem;
+
+  outline: 0;
+  border: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.btn-primary {
+  width: 35%;
+  min-width: 25rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: crimson;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  border: 0;
+}
+.btn-primary:hover {
+  background-color: firebrick;
+}
+.input__grp {
+  margin: 2.5rem 0;
+}
+
+input,
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
