@@ -3,7 +3,7 @@ import "./AddBooks.css";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERIES } from "./../../queries/queries";
 
-const { getAuthorsQuery, addBookQuery } = QUERIES;
+const { getAuthorsQuery, addBookQuery, getBooksQuery } = QUERIES;
 
 function AddBooks() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,11 @@ function AddBooks() {
     e.preventDefault();
     if (Object.values(formData).every(Boolean)) {
       const { name, genre, authorId } = formData;
-      addBookHandler({ variables: { name, genre, authorId } });
+      addBookHandler({
+        variables: { name, genre, authorId },
+        refetchQueries: [{ query: getBooksQuery }],
+      });
+
       console.log(formData);
       setFormData({
         name: "",

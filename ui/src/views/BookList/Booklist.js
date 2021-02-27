@@ -25,6 +25,7 @@ function Booklist({ sendBook }) {
             key={book.id}
             name={book.name}
             genre={book.genre}
+            id={book.id}
             onClick={() => onBookClick(book)}
           />
         );

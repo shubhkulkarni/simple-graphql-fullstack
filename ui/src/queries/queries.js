@@ -11,6 +11,10 @@ export const QUERIES = {
           name
           age
           id
+          books {
+            name
+            genre
+          }
         }
       }
     }
@@ -29,6 +33,13 @@ export const QUERIES = {
       addBook(name: $name, genre: $genre, authorId: $authorId) {
         name
         genre
+      }
+    }
+  `,
+  deleteBookQuery: gql`
+    mutation deleteBookHandler($id: ID!) {
+      deleteBook(id: $id) {
+        name
       }
     }
   `,

@@ -16,6 +16,16 @@ function BookDetails({ name, genre, author }) {
         <div className="bookauthor">
           ~ {author.name} <span className="age">( {author.age} )</span>
         </div>
+        <div className="bookslist_a">
+          {author.name}'s other books :
+          {author.books.map((i) => {
+            return i.name !== name ? (
+              <div key={i}>
+                {i.name} ({i.genre})
+              </div>
+            ) : null;
+          })}
+        </div>
       </div>
     </div>
   ) : (

@@ -15,8 +15,9 @@ function App() {
   const [currentBook, setCurrentBook] = useState({
     name: "",
     genre: "",
-    author: { name: "", age: null },
+    author: { name: "", age: null, books: [] },
   });
+
   const getBook = (book) => {
     setCurrentBook(book);
   };

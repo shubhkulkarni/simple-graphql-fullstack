@@ -18,7 +18,7 @@
 }
 
 .banner__img {
-  height: 50rem;
+  height: 30rem;
   max-width: 80%;
 }
 
@@ -48,4 +48,8 @@
 .bookauthor {
   margin-top: 1.5rem;
   font-size: 2rem;
+}
+
+.bookslist_a {
+  margin-top: 1.5rem;
 }

@@ -120,6 +120,15 @@ const Mutation = new GraphQLObjectType({
         return Book.create(args);
       },
     },
+    deleteBook:{
+      type:BookType,
+      args:{
+        id:{type:new GraphQLNonNull(GraphQLID)}
+      },
+      resolve(parent,args){
+        return Book.findByIdAndDelete(args.id)
+      }
+    }
   },
 });
 module.exports = new GraphQLSchema({

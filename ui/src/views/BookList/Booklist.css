@@ -7,11 +7,12 @@
 }
 
 .book__item:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
   transition: all 0.3s;
 
   box-shadow: rgba(100, 100, 111, 0.35) 0px 7px 29px 0px;
 }
+
 .book__title {
   color: crimson;
   font-size: 1.3em;
@@ -38,4 +39,14 @@
 .book__img {
   height: 4rem;
   fill: crimson;
+}
+
+.cross__btn {
+  color: crimson;
+  text-align: right;
+  visibility: hidden;
+}
+
+.book__item:hover .cross__btn {
+  visibility: visible;
 }
