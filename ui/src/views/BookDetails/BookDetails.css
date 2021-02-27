@@ -6,7 +6,11 @@
   height: 100vh;
   box-shadow: rgba(100, 100, 111, 0.65) 0px 7px 29px 0px;
 
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner {
@@ -15,10 +19,10 @@
 
 .banner__img {
   height: 50rem;
+  max-width: 80%;
 }
 
 .details {
-  margin-top: 10rem;
   color: white;
 }
 
@@ -42,6 +46,6 @@
 }
 
 .bookauthor {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-size: 2rem;
 }

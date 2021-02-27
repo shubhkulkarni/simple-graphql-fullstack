@@ -19,7 +19,7 @@ const samplebooks = [
     author: { name: "Shivaji Sawant", age: 52 },
   },
   {
-    name: "Vision 2020dhgdfghdfggdfgdgdgdgd",
+    name: "Vision 2020",
     genre: "general",
     author: { name: "Chetan Bhagat", age: 37 },
   },
